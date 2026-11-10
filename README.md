@@ -68,14 +68,24 @@ Para asegurar que Jupyter ejecute el notebook utilizando el entorno virtual reci
 python -m ipykernel install --user --name venvtpe --display-name "venvTPE (Python 3.12)"
 ```
 
-### Paso 6: Iniciar Jupyter Lab o Jupyter Notebook
+### Paso 6: Ejecutar la Notebook
+
+El análisis se puede visualizar y ejecutar de dos formas equivalentes:
+
+#### Opción A: Mediante la interfaz web oficial (Jupyter Lab / Notebook)
 ```bash
 jupyter lab
 ```
-*(Alternativamente, se puede ejecutar `jupyter notebook`).*
-
-Una vez abierta la interfaz web en el navegador, abrir el archivo `Tp_especial.ipynb` y verificar que el kernel seleccionado sea **venvTPE (Python 3.12)**. Para ejecutar la totalidad del análisis, seleccionar en el menú superior:  
+*(O alternativamente: `jupyter notebook`).*  
+Al abrirse la interfaz web en el navegador, abrir el archivo `Tp_especial.ipynb`, verificar que el kernel activo sea **venvTPE (Python 3.12)** y ejecutar:  
 `Kernel -> Restart Kernel and Run All Cells`.
+
+#### Opción B: Desde un IDE (VS Code, PyCharm, Cursor, etc.)
+1. Abrir la carpeta del repositorio en el IDE.
+2. Abrir el archivo `Tp_especial.ipynb`.
+3. En la esquina superior derecha, hacer clic en **Select Kernel** (o *Seleccionar intérprete*).
+4. Seleccionar el intérprete del entorno virtual: `./venvTPE/bin/python` (o el kernel registrado `venvTPE (Python 3.12)`).
+5. Ejecutar las celdas individualmente o hacer clic en **Run All** (*Ejecutar todo*).
 
 ---
 
