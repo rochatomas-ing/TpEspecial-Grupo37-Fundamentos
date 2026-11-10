@@ -1,7 +1,6 @@
 # Entorno virtual local (NO versionar en git)
 venvTPE/
 venv*/
-.env
 .venv
 
 # Python cache y compilados
