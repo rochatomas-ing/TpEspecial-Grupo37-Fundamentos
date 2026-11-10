@@ -27,6 +27,7 @@ Las siguientes instrucciones están diseñadas y verificadas para una máquina c
 
 Asegurarse de contar con los siguientes paquetes del sistema instalados:
 - **Python 3** (versión 3.10 o superior; verificado con Python 3.12).
+- **Soporte para venv** (en distribuciones Debian, Ubuntu o Pop!_OS, `ensurepip` viene separado por defecto; instalar con: `sudo apt install python3-venv` o `sudo apt install python3.12-venv`).
 - **Git**.
 
 ---
@@ -46,6 +47,7 @@ Se recomienda crear un entorno virtual local (`venvTPE`) para aislar las librer�
 ```bash
 python3 -m venv venvTPE
 ```
+*(Nota para Debian/Ubuntu/Pop!_OS: Si el sistema indica que `ensurepip is not available`, ejecutar `sudo apt install python3-venv` y volver a lanzar el comando).*
 
 ### Paso 3: Activar el entorno virtual
 ```bash
