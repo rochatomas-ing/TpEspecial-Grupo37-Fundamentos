@@ -1,69 +1,23 @@
-asttokens==3.0.2
-certifi==2026.7.22
-charset-normalizer==3.5.1
-cloudpickle==3.1.2
-colorama==0.4.6
-comm==0.2.3
-contourpy==1.3.3
-cycler==0.12.1
-debugpy==1.8.21
-distlib==0.4.3
-et_xmlfile==2.0.0
-executing==2.2.1
-filelock==3.32.5
-fonttools==4.64.0
-formulaic==1.2.2
-idna==3.19
-importlib_resources==7.1.0
-interface_meta==2.0.1
-ipykernel==7.3.0
-ipython==9.17.0
-ipython_pygments_lexers==1.1.1
-jedi==0.20.0
-Jinja2==3.1.6
-joblib==1.6.0
-jupyter_client==8.10.0
-jupyter_core==5.9.1
-kiwisolver==1.5.1
-MarkupSafe==3.0.4
-matplotlib==3.11.1
-matplotlib-inline==0.2.2
-narwhals==2.28.0
-nest-asyncio2==1.7.2
-numpy==2.5.2
-openpyxl==3.1.5
-packaging==26.3
-panda==0.3.1
+# Dependencias del TPE - EPA Fuel Economy Model Year 2025
+# Entorno verificado con Python 3.12 sobre Linux.
+
+# --- Manipulación y lectura de datos ---
 pandas==3.0.5
-parso==0.8.7
-patsy==1.0.3
-pillow==12.3.0
-platformdirs==4.11.5
-prompt_toolkit==3.0.53
-psutil==7.2.2
-pure_eval==0.2.3
-Pygments==2.21.0
-pyparsing==3.3.2
-python-dateutil==2.9.0.post0
-python-discovery==1.6.0
-pyzmq==27.2.0
-requests==2.34.2
-scikit-learn==1.9.1
-scipy==1.18.1
+numpy==2.5.2
+openpyxl==3.1.5          # Requerido por pandas para abrir archivos .xlsx
+
+# --- Inferencia estadística, modelos y reducción de dimensionalidad ---
+scipy==1.18.1            # Tests de Shapiro-Wilk, Kolmogorov-Smirnov, Levene, Kruskal-Wallis, Mann-Whitney U, Wilcoxon, Binomial
+scikit-learn==1.9.1      # StandardScaler, PCA, TSNE
+statsmodels==0.15.0      # Regresión lineal múltiple OLS
+
+# --- Visualización de datos ---
+matplotlib==3.11.1
 seaborn==0.13.2
-setuptools==84.0.0
-six==1.17.0
-stack-data==0.6.3
-statsmodels==0.15.0
-sweetviz==2.3.3
-threadpoolctl==3.8.0
-tornado==6.5.8
-tqdm==4.70.1
-traitlets==5.16.1
-typing_extensions==4.16.0
-tzdata==2026.3
-urllib3==2.7.0
-virtualenv==21.7.8
-wcwidth==0.8.3
+
+# --- Ejecución de la notebook en entorno Jupyter ---
+jupyterlab==4.6.4
+ipykernel==7.3.0
+
+# --- Descarga auxiliar de archivos ---
 wget==3.2
-wrapt==2.6.0.dev1

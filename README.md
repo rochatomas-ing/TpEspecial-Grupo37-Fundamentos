@@ -1,41 +1,99 @@
-# Trabajo Practico Especial. Calidad del Agua del Rio de la Plata
+# Trabajo Práctico Especial — Fundamentos de la Ciencia de Datos (UNICEN)
 
-## Instalar antes de comenzar:
-Visual Studio Code: https://code.visualstudio.com/docs/
+**Conjunto de datos:** EPA Fuel Economy — Model Year 2025  
+**Grupo:** Grupo 37  
+**Ayudante Asignado:** Santiago Vitale  
 
-Python: https://www.python.org/downloads/
+---
 
-Git: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+## 1. Descripción del Repositorio
 
-Jupyter Lab: [Guía de instalación](https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html)
+Este repositorio contiene la resolución del Trabajo Práctico Especial de la materia **Fundamentos de la Ciencia de Datos** (Facultad de Ciencias Exactas, UNICEN). 
 
-## Pasos a seguir para visualizar el trabajo:
+El trabajo incluye un análisis exploratorio detallado, limpieza justificada y validación estadística de hipótesis (tanto propuestas por el grupo como obligatorias de la cátedra) sobre el conjunto de datos oficial **Model Year 2025 Test Car List** de la **EPA (Environmental Protection Agency)** de los Estados Unidos.
 
-1.Abrir VisualStudioCode
+### Archivos incluidos en el repositorio:
+- `Tp_especial.ipynb`: Notebook Jupyter con el 100% de los análisis, código y conclusiones organizados en secciones.
+- `25-testcar-2026-01-21.xlsx`: Archivo de datos oficial de certificación provisto por la EPA.
+- `requirements.txt`: Lista depurada de dependencias y versiones de librerías para reproducir el entorno.
+- `README.md`: Instrucciones de configuración y ejecución del proyecto.
+- `.gitignore`: Configuración para evitar el seguimiento del entorno virtual y archivos temporales.
 
-2.Descargar el archivo de git desde la terminal de visual
+---
 
-    a.Crear una carpeta local en donde se guardará el repositorio
-    
-    b.Abrir una nueva terminal en Visual y Navegar hasta la carpeta creada con el comando: 'cd/ < ruta >' o buscar la carpeta recien creada desde 'Explorer'
-    
-    c.Clonar el repositorio de git desde la terminal: 'git clone https://github.com/lopezmilagros/TPE/'
-    
-3.Si no se tiene instalado el virtualenv, instalarlo indicando en la terminal: 'pip install virtualenv'
+## 2. Requisitos Previos (Entorno Linux)
 
-4.Crear un ambiente para el repositorio desde la terminar: 'python -m venv < nombre del ambiente >
+Las siguientes instrucciones están diseñadas y verificadas para una máquina con sistema operativo **Linux** (ej. Ubuntu 22.04 / 24.04 LTS o distribuciones basadas en Debian/Arch).
 
-5.Activar el ambiente desde la terminal:
+Asegurarse de contar con los siguientes paquetes del sistema instalados:
+- **Python 3** (versión 3.10 o superior; verificado con Python 3.12).
+- **Git**.
 
-    a.Para linux / MacOS: 'source < nombre del ambiente >/bin/activate
-    
-    b.Para Windows: '< nombre del ambiente >\Scripts\activate
-    
-6. 
-    a. Primero, asegúrate de estar parado en la carpeta en la que guardaste el proyecto, podés usar el comando 'cd /ruta/a/tu/proyecto'
+---
 
-    b. Instalar las librerias requeridas para ejecutar la notebook de jupyter desde la terminal: 'pip install -r requirements.txt'
+## 3. Instrucciones de Ejecución Paso a Paso (Linux Terminal)
 
-    c. En caso de tener problemas para instalar las librerias, asegurate de indicar la ruta a tu proyecto 'pip install -r ruta/a/tu/proyecto'git push -u origin master
+Abrir una terminal de Linux (`bash` / `zsh`) y ejecutar los siguientes comandos en orden:
 
-7.Puedes ejecutar la notebook
+### Paso 1: Clonar el repositorio
+```bash
+git clone https://github.com/rochatomas-ing/TpEspecial-Grupo37-Fundamentos.git
+cd TpEspecial-Grupo37-Fundamentos
+```
+
+### Paso 2: Crear el entorno virtual de Python
+Se recomienda crear un entorno virtual local (`venvTPE`) para aislar las librerías:
+```bash
+python3 -m venv venvTPE
+```
+
+### Paso 3: Activar el entorno virtual
+```bash
+source venvTPE/bin/activate
+```
+*(Al activarse, el prompt de la terminal mostrará el prefijo `(venvTPE)`).*
+
+### Paso 4: Actualizar pip e instalar dependencias
+Instalar las dependencias exactas especificadas en el archivo `requirements.txt`:
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+### Paso 5: Registrar el kernel en Jupyter (Recomendado)
+Para asegurar que Jupyter ejecute el notebook utilizando el entorno virtual recién creado:
+```bash
+python -m ipykernel install --user --name venvtpe --display-name "venvTPE (Python 3.12)"
+```
+
+### Paso 6: Iniciar Jupyter Lab o Jupyter Notebook
+```bash
+jupyter lab
+```
+*(Alternativamente, se puede ejecutar `jupyter notebook`).*
+
+Una vez abierta la interfaz web en el navegador, abrir el archivo `Tp_especial.ipynb` y verificar que el kernel seleccionado sea **venvTPE (Python 3.12)**. Para ejecutar la totalidad del análisis, seleccionar en el menú superior:  
+`Kernel -> Restart Kernel and Run All Cells`.
+
+---
+
+## 4. Estructura de Secciones de la Notebook
+
+La notebook está organizada de forma modular siguiendo los lineamientos del enunciado oficial:
+
+- **1. Análisis exploratorio inicial (EDA):**
+  - *1.1. Origen de los datos:* Contexto del laboratorio NVFEL de la EPA en Ann Arbor (Michigan) y regulación 40 CFR Part 600.
+  - *1.2 a 1.9:* Dimensiones, tipos de atributos, porcentaje de nulos, frecuencias categóricas, configuraciones únicas vs. ensayos múltiples y análisis IQR.
+- **2. Limpieza de base de datos y acciones correctivas:**
+  - Tratamiento y justificación de duplicados, columnas constantes, columnas con más del 95% de nulos y recorte de valores centinela irreales ($\le 500$ MPG).
+- **3. Planteo de hipótesis:**
+  - Planteo formal con información del dominio de una hipótesis univariada, una bivariada y una multivariada.
+- **4. Validación de hipótesis:**
+  - *4.1 a 4.3 (Hipótesis del grupo):* 
+    - Univariada: Bimodalidad y asimetría de MPG (térmicos vs eléctricos) evaluada con Shapiro-Wilk y QQ-plot.
+    - Bivariada: Relación inversa entre Peso y MPG en combustión evaluada con Spearman.
+    - Multivariada: Moderación de potencia sobre MPG según combustible (Mann-Whitney sobre ratio).
+  - *Hipótesis obligatorias de la cátedra:*
+    - **Hipótesis a):** Mayoría de combustión urbana $\ge 25$ MPG (evaluada con Test Binomial exacto y Wilcoxon de una muestra).
+    - **Hipótesis b):** Economía según sistema de tracción (Kruskal-Wallis y Boxplot tras descartar normalidad y homocedasticidad).
+    - **Hipótesis c):** Asociación conjunta de atributos técnicos con eficiencia urbana (Regresión Lineal Múltiple OLS, complementada con PCA / Biplot y t-SNE).
